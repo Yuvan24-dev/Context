@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Context } from "./Creator";
+import MyComponent from "./Consumer"
+import Othercomponent from "./Provider";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = ()=>{
+    const value = "Hello everyone";
+    const validate = "Hai everyone"
+return (<>
+<Context.Provider value={value}>
+      <MyComponent />
+    </Context.Provider>
+
+<Context.Provider value={validate}>
+    <Othercomponent />
+    </Context.Provider>    
+</>
+)
 }
-
 export default App;
